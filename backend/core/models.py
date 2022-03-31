@@ -17,11 +17,11 @@ class Person(models.Model):
         ('4', 'Рабочий')
     ]
 
-    full_name = models.CharField(max_length=255, verbose_name='ФИО', null=True)
+    full_name = models.CharField(max_length=15, verbose_name='ФИО', null=True)
     position = models.CharField(max_length=1, choices=STATUS_PERSON, verbose_name='Должность')
     employment_date = models.DateField(verbose_name='Дата приема на работу', null=True, blank=True)
-    salary = models.CharField(max_length=255, verbose_name='Размер ЗП')
-    information_salary = models.CharField(max_length=255, verbose_name='Инф о выплаченной ЗП', null=True, blank=True)
+    salary = models.PositiveSmallIntegerField(verbose_name='Размер ЗП')
+    information_salary = models.PositiveIntegerField(verbose_name='Инф о выплаченной ЗП', null=True, blank=True)
     chief = models.CharField(max_length=1, choices=STATUS_CHIEF, verbose_name='В подчинении у ', null=True, blank=True)
 
     class Meta:
